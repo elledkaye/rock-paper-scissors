@@ -5,14 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
+    <h1>Rock Paper Scissors</h1>
 </head>
-<body>
-    <button id='btn_rock' type='button' onclick='getSelection()'>Rock</button> 
-    <button id="btn_paper">Paper</button> 
-    <button id="btn_scissors">Scissors</button>
-    <input type="checkbox" id="chk_rock" value="rock">
+<body>  
+    <h2>Select a button to get started</h2> 
+    <div class="container" id="option_container">
+    <button class="btn" id='btn_rock' type="button" value="rock" onclick="playGame(this)">Rock</button> 
+    <button class="btn" id="btn_paper" value="paper" onclick="playGame(this)">Paper</button> 
+    <button class="btn" id="btn_scissors" value="scissors" onclick="playGame(this)">Scissors</button>
+    </div>
+    <div> 
     <button id="start" onclick="getSelection()">Start</button>
+    <button id="reset" onclick="reset()">Reset</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
