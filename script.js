@@ -99,27 +99,26 @@ getrock = () =>{
 function test(){
     computerPlay()
       if(playerSelection == randomSelection){
-        
         alert('You Tied')
       }else if(playerSelection == 'paper' && randomSelection == 'scissors'){
         computeScore = true;
-        alert('you lost sucka')
+        alert('You lose! Scissors beats Paper!')
       } else if(playerSelection == 'scissors' && randomSelection == 'paper'){  
         playerScore = true
-        alert('you win')
+        alert('You win! Scissors beats Paper!')
       }else if(playerSelection == 'rock' && randomSelection == 'paper'){ 
         computeScore = true;
-        alert('you lose')
+        alert('You lose! Paper beats Rock!')
     }else if(playerSelection == 'paper' && randomSelection == 'rock'){ 
       playerScore = true;
-      alert ('you wine')
+      alert ('You win! Paper beats Rock!')
     }else if(playerSelection == 'rock' && randomSelection == 'scissors'){ 
       playerScore = true;
-      alert('youv won')
+      alert('You win! Rock beats Scissors!')
     }else if(playerSelection == 'scissors' && randomSelection == 'rock'){
       computeScore = true; 
       computeCount =+1;
-      alert('you lose');
+      alert('You lose! Rock beats Scissors!');
     }else {
     alert('merp')
       }
