@@ -4,7 +4,7 @@
 //we will use the 'computerPlay' function to make the computer's play  
 
 //we will create an array variable to store the values rock, paper, scissor 
-let optionArr = ['rock', 'paper', 'scissor'];
+let optionArr = ['rock', 'paper', 'scissors'];
 let playerCount = 0; 
 let computeCount =0;
 let playerScore = false; 
@@ -12,6 +12,7 @@ let computeScore = false;
 let button_rock = document.getElementById('btn_rock');
 let btn_paper = document.getElementById('btn_paper');
 let btn_scissors = document.getElementById('btn_scissors');
+let playerSelection = document.querySelector('.btn');
 let randomSelection;
 
 
@@ -24,9 +25,6 @@ randomSelection = optionArr[Math.floor(Math.random()* optionArr.length)];
 return randomSelection;
 
 };
-
-//getSelection 
-
 //Q2? How do we find out which button was clicked? 
 //Q3? How do we disable the other two options once we find out which button was clicked?  
 //if btn_rock = true then disable the other two 
@@ -35,7 +33,7 @@ return randomSelection;
 //we need a function that plays a single roun of rock, paper, scissors 
 //takes 2 parameters - computerSelection, playerSelection; 
 //and then return a string that declares the winner
-playGame = (selection) =>{  
+playGame = (selection)=>{  
     if(selection == btn_rock){ 
       getrock(); 
       alert(playerSelection)
@@ -48,9 +46,11 @@ playGame = (selection) =>{
      alert(playerSelection)
    }
    
+   test();
    
-   console.log(`ComputerSelection: ` + ' ' + compSelection + ' ' + `PlayerSelection: ` + ' ' + playerSelection + ' ' + computeScore + ' ' + computeCount +' '+ playerScore);
-   
+   console.log(`ComputerSelection: ` + ' ' + randomSelection + ' ' + `PlayerSelection: ` + ' ' + playerSelection + ' ' + computeScore + ' ' + computeCount +' '+ playerScore);
+   console.log(computeCount)
+   console.log(playerCount)
    
    }
 
@@ -98,27 +98,27 @@ getrock = () =>{
 //switch statement? 
 function test(){
     computerPlay()
-      if(playerSelection == compSelection){
-        computerScore = false;
-        playerScore = false;
+      if(playerSelection == randomSelection){
+        
         alert('You Tied')
-      }else if(playerSelection == 'paper' && compSelection == 'scissors'){
+      }else if(playerSelection == 'paper' && randomSelection == 'scissors'){
         computeScore = true;
         alert('you lost sucka')
-      } else if(playerSelection == 'scissors' && compSelection == 'paper'){  
+      } else if(playerSelection == 'scissors' && randomSelection == 'paper'){  
         playerScore = true
         alert('you win')
-      }else if(playerSelection == 'rock' && compSelection == 'paper'){ 
+      }else if(playerSelection == 'rock' && randomSelection == 'paper'){ 
         computeScore = true;
         alert('you lose')
-    }else if(playerSelection == 'paper' && compSelection == 'rock'){ 
+    }else if(playerSelection == 'paper' && randomSelection == 'rock'){ 
       playerScore = true;
       alert ('you wine')
-    }else if(playerSelection == 'rock' && compSelection == 'scissors'){ 
+    }else if(playerSelection == 'rock' && randomSelection == 'scissors'){ 
       playerScore = true;
       alert('youv won')
-    }else if(playerSelection == 'scissors' && compSelection == 'rock'){
+    }else if(playerSelection == 'scissors' && randomSelection == 'rock'){
       computeScore = true; 
+      computeCount =+1;
       alert('you lose');
     }else {
     alert('merp')
@@ -135,6 +135,7 @@ function test(){
       computeScore = false; 
       playerScore = false;
        } 
+       
    }; 
    //next we need a function that plays a single round of rock, paper, scissors 
 //the function should take two parameters - playerSelection and computerSelection  
@@ -144,18 +145,14 @@ function test(){
 //if computeScore = true, then a point get's added to computerScore 
 //if tied then 0 points to each 
 addPoints = (a, b) => {
+ 
+
     //do while loop?
     //for loop?
     //for player score to get incremented player score must be true 
     //otherwise if computer score is true and player score is false 
     //then computer score gets incremented
    console.log(a, b)
+}
 
 
-//we need a function that determines which button the user clicked - rock, paper, scissor 
-//depending on the button that was selected, that value will be the playersSelection   
-//we have (3) buttons in html - btn_rock, btn_paper, btn_scissor 
-//if btn_rock was clicked disable the other (2) buttons, else if btn_paper was clicked disable the other two options 
-//paper beats rock 
-//scissors beats paper 
-//rock beats scissors 
