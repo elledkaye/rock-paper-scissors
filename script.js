@@ -5,6 +5,8 @@
 
 //we will create an array variable to store the values rock, paper, scissor 
 let optionArr = ['rock', 'paper', 'scissors'];
+let playerOutput = document.getElementById('playerOutput');
+let compOutput = document.getElementById('compOutput');
 let playerCount = 0; 
 let computeCount =0;
 let playerScore = false; 
