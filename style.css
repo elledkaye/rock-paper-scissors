@@ -10,15 +10,16 @@ body{
 
 
 img.background{
-    /*position:absolute;
+    position:absolute;
     width:100%; 
     min-height:400px; 
-    min-width: 70px;*/
+    min-width: 70px;
 }
 .btn{
     margin:10px;
 }
 .container{
+    position: relative;
     margin:auto; 
     overflow: hidden;
     border: 2px solid black; 
