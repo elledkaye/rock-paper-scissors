@@ -2,9 +2,24 @@
 //begin with a function 'computerPlay' 
 //computerPlay will randomly return either rock, paper or scissor 
 //we will use the 'computerPlay' function to make the computer's play  
-
 //we will create an array variable to store the values rock, paper, scissor 
+
+
+//Q2? How do we find out which button was clicked? 
+//Q3? How do we disable the other two options once we find out which button was clicked?  
+//if btn_rock = true then disable the other two 
+//if btn_paper = true then disable the other two 
+//if btn_scissors = true then disable the other two
+//we need a function that plays a single roun of rock, paper, scissors 
+//takes 2 parameters - computerSelection, playerSelection; 
+//and then return a string that declares the winner
+
+//if user clicks ok 
+//we need to jump out of the function so the user can select a new option 
+//Q4?: How do we do that....
+
 let optionArr = ['rock', 'paper', 'scissors'];
+let roundOutput = document.getElementById('roundNum');
 let playerOutput = document.getElementById('playerOutput');
 let compOutput = document.getElementById('compOutput');
 let playerCount = 0; 
@@ -16,7 +31,8 @@ let btn_paper = document.getElementById('btn_paper');
 let btn_scissors = document.getElementById('btn_scissors');
 let playerSelection = document.querySelector('.btn');
 let randomSelection;
-
+let round = 1; 
+let maxRound = 6; 
 
 //computerPlay function 
 computerPlay = () => {
@@ -27,77 +43,94 @@ randomSelection = optionArr[Math.floor(Math.random()* optionArr.length)];
 return randomSelection;
 
 };
-//Q2? How do we find out which button was clicked? 
-//Q3? How do we disable the other two options once we find out which button was clicked?  
-//if btn_rock = true then disable the other two 
-//if btn_paper = true then disable the other two 
-//if btn_scissors = true then disable the other two
-//we need a function that plays a single roun of rock, paper, scissors 
-//takes 2 parameters - computerSelection, playerSelection; 
-//and then return a string that declares the winner
-playGame = (selection)=>{  
-    if(selection == btn_rock){ 
-      getrock(); 
-      alert(playerSelection)
-    }else if(selection == btn_paper){
-      getpaper();
-      alert(playerSelection);
-   }
-   else {selection == btn_scissors
-     getscissors();
-     alert(playerSelection)
-   }
-   
-   test();
-   
-   console.log(`ComputerSelection: ` + ' ' + randomSelection + ' ' + `PlayerSelection: ` + ' ' + playerSelection + ' ' + computeScore + ' ' + computeCount +' '+ playerScore);
-   console.log(computeCount)
-   console.log(playerCount)
-   
-   }
 
 //(3) sub functions 
 getrock = () =>{ 
-    if(btn_rock.onclick = true){
-      alert('rock clicked'); 
-      btn_paper.disabled = true; 
-      btn_scissors.disabled = true;
-      playerSelection = 'rock';
-    } 
-  return (playerSelection);
-  }; 
-
-  getpaper = () => {
-    if(btn_paper.onclick = true){
-      alert('paper clicked');
-      console.log('paper');
-      btn_rock.disabled = true; 
-      btn_scissors.disabled = true;
-      playerSelection = 'paper';
-    };
-    return(playerSelection);
-  };
-  
-  getscissors = () =>{
-  if(btn_scissors.onlcik = true){
-    alert('scissors been clicked');
-    console.log('scissors');
-    btn_rock.disabled = true; 
+  if(btn_rock.onclick = true){
+    alert('rock clicked'); 
     btn_paper.disabled = true; 
-    playerSelection = 'scissors'
-  }
-    return(playerSelection);
-  }; 
+    btn_scissors.disabled = true;
+    playerSelection = 'rock';
+  } 
+return (playerSelection);
+}; 
 
+getpaper = () => {
+  if(btn_paper.onclick = true){
+    alert('paper clicked');
+    console.log('paper');
+    btn_rock.disabled = true; 
+    btn_scissors.disabled = true;
+    playerSelection = 'paper';
+  };
+  return(playerSelection);
+};
 
+getscissors = () =>{
+if(btn_scissors.onlcik = true){
+  alert('scissors been clicked');
+  console.log('scissors');
+  btn_rock.disabled = true; 
+  btn_paper.disabled = true; 
+  playerSelection = 'scissors'
+}
+  return(playerSelection);
+}; 
+
+playGame = (selection)=>{  
+   game();
+    if(selection == btn_rock){ 
+      getrock(); 
+    }else if(selection == btn_paper){
+      getpaper();
+   }
+   else {selection == btn_scissors
+     getscissors();
+   }
+
+   test();
+
+   
+   console.log(`ComputerSelection: ` + ' ' + randomSelection + ' ' + `PlayerSelection: ` + ' ' + playerSelection + ' ' + computeScore + ' ' + computeCount +' '+ playerScore);
+   console.log(computeCount);
+   console.log(playerCount);
+   roundOutput.innerHTML = "Round" + round; 
+   compOutput.innerHTML = randomSelection;
+   playerOutput.innerHTML = playerSelection; 
+   round++; 
+   console.log(round)
+   reset();
+   
+   }
+
+//we need a new function called game() 
+//need to use the previous function inside of this one to play a (5) round gamee
+//need to keep score and report a winner or loser (or both) at the end 
+
+game = () =>{
+//when the user clicks a button that's when the game begins 
+//when the user clicks one button the other (2) become disabled and the game runs 
+//Q5?: how do I want the user to renable the buttons and proceed to next round 
+//when round# is over, a prompt could display asking the user to go to next round
+
+if(round < maxRound){
+  alert("Round" + "" + round); 
+}else{
+  alert("End of game!");
+  btn_rock.disabled = true; 
+  btn_paper.disabled = true; 
+  btn_scissors.disabled = true;
+}
+
+}
+   
 //paper beats rock 
 //rock beats scissors 
 //scissors beats paper 
 //if player selection is paper and computer is rock 
 //the player wins 
 //if computer selection is paper and player is rock then 
-//the computer wins......
-//switch statement? 
+//the computer wins etc..
 function test(){
     computerPlay()
       if(playerSelection == randomSelection){
@@ -126,18 +159,15 @@ function test(){
       }
     addPoints(computeScore, playerScore)
     } 
-    
   
   reset = () => {
-    if( document.getElementById('reset').onclick = true){
+      playerSelection = document.querySelector('.btn');
       btn_rock.disabled = false; 
       btn_paper.disabled = false; 
       btn_scissors.disabled = false;
-      computeScore = false; 
-      playerScore = false;
-       } 
-       
-   }; 
+      
+
+       }; 
    //next we need a function that plays a single round of rock, paper, scissors 
 //the function should take two parameters - playerSelection and computerSelection  
 
