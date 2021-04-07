@@ -16,34 +16,44 @@
     <h1>Rock Paper Scissors</h1>
 </head>
 <body>
-   <img class="background img-fluid" src="background.jpg">
+  
+  <!--- <img class="background img-fluid" src="background.jpg">-->
       <div class="container container fluid" id="game_container">
-    <h2>Select a button to get started</h2> 
+    <h2>Select one of the following buttons to get started!</h2> 
     <h3 id="roundNum"></h3>
     <div class="container container-fluid mt-3" id="option_container"> 
-        <div class="row" id="option_row">
-            <div class="col-md-4" id="player_options">
-    <button class="btn btn-secondary" id='btn_rock' type="button" value="rock" onclick="playGame(this)" ><img src="rock-emoji.png" style="height: 35px; width: 35px;">Rock</button> 
+        <div class="row mt-5" id="option_row">
+            <div class="col-md-4 container-fluid" id="player_options">
+    <button class="btn btn-secondary " id='btn_rock' type="button" value="rock" onclick="playGame(this)" ><img src="rock-emoji.png" style="height: 35px; width: 35px;">Rock</button> 
+</div> 
+<div class="col-md-4">
     <button class="btn btn-secondary" id="btn_paper" value="paper" onclick="playGame(this)"><img src="paper.png" style="height:35px; width:35px;">Paper</button> 
-    <button class="btn btn-secondary" id="btn_scissors" value="scissors" onclick="playGame(this)"><img src="scissors-icon-31.png"style="height:35px; width:35px;">Scissors</button>
-    </div>
+</div> 
+<div class="col-md-4">
+    <button class="btn btn-secondary" id="btn_scissors" value="scissors" onclick="playGame(this)"><img src="scissors-icon-31.png"style="height:30px; width:30px;">Scissors</button>
+</div>
 </div>
     </div>
     <div class="container container-fluid" id="playing_field"> 
+        <div class="col-md-6 mt-3" id="comp_output">
+            <h4>Computer:</h4>
         <p id="compOutput"></p>
+        </div>
+        <div class="col-md-6 mt-3" id="player_output">
+            <h4>Player:</h4>
         <p id="playerOutput"></p>
-here is where there will be two input fields, one holding the players selection and the other holding the computers random selection 
-for display only
+        </div>
     </div>
     <div class="container container-fluid mt-3" id="game_control"> 
         <div class="row"id="game_row">
-            <div class="col-md-6">
+         <div class="col-md-6">
     <button class="btn btn-secondary" id="start" onclick="getSelection()">Start</button>
     <button class="btn btn-secondary" id="reset" onclick="reset()">Reset</button>
 </div>
 </div>
     </div>
 </div>
+
     <script src="script.js"></script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
