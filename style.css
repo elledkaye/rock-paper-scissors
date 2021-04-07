@@ -26,14 +26,18 @@ img.background{
     padding:10px;
   
 } 
+
+.container#game_container{
+    width: 100%;
+}
 .container#option_container{
     display: flex;
+   
     
 }
 #option_row{
     margin: auto;
     flex-direction: row;
-    width: 100%;
     justify-content:center;
 }
 .container#game_control{
