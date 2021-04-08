@@ -26,14 +26,21 @@ let playerCount = 0;
 let computeCount =0;
 let playerScore = false; 
 let computeScore = false;
-let button_rock = document.getElementById('btn_rock');
-let btn_paper = document.getElementById('btn_paper');
-let btn_scissors = document.getElementById('btn_scissors');
-let playerSelection = document.querySelector('.btn');
+let btn_rock = document.getElementById('btn_rock').disabled = false;
+let btn_paper = document.getElementById('btn_paper').disabled=false;
+let btn_scissors = document.getElementById('btn_scissors').disabled=false;
+let playerSelection = document.querySelector('button');
+let button = document.querySelector('button');
 let randomSelection;
 let round = 1; 
-let maxRound = 6; 
+let maxRound = 3 ; 
 
+function testbtn(){
+  if (button = btn_rock.onclick) {
+    alert('fuck')
+
+  }
+}
 //computerPlay function 
 computerPlay = () => {
 //the computerPlay function will randomly select a choice from the choice array (choiceArr)
@@ -76,9 +83,9 @@ if(btn_scissors.onlcik = true){
 }
   return(playerSelection);
 }; 
-
 playGame = (selection)=>{  
    game();
+
     if(selection == btn_rock){ 
       getrock(); 
     }else if(selection == btn_paper){
@@ -89,14 +96,12 @@ playGame = (selection)=>{
    }
 
    test();
-
-   
    console.log(`ComputerSelection: ` + ' ' + randomSelection + ' ' + `PlayerSelection: ` + ' ' + playerSelection + ' ' + computeScore + ' ' + computeCount +' '+ playerScore);
    console.log(computeCount);
    console.log(playerCount);
-   roundOutput.innerHTML = "Round" + round; 
    compOutput.innerHTML = randomSelection;
    playerOutput.innerHTML = playerSelection; 
+   roundOutput.innerHTML = "Round" + round; 
    round++; 
    console.log(round)
    reset();
@@ -112,16 +117,18 @@ game = () =>{
 //when the user clicks one button the other (2) become disabled and the game runs 
 //Q5?: how do I want the user to renable the buttons and proceed to next round 
 //when round# is over, a prompt could display asking the user to go to next round
-
-if(round < maxRound){
+if(round <= maxRound){
   alert("Round" + "" + round); 
 }else{
-  alert("End of game!");
+  alert("End of game!")
   btn_rock.disabled = true; 
   btn_paper.disabled = true; 
   btn_scissors.disabled = true;
-}
+};
+} 
 
+endGame =()=>{
+  
 }
    
 //paper beats rock 
@@ -137,22 +144,27 @@ function test(){
         alert('You Tied')
       }else if(playerSelection == 'paper' && randomSelection == 'scissors'){
         computeScore = true;
+        computeCount++
         alert('You lose! Scissors beats Paper!')
       } else if(playerSelection == 'scissors' && randomSelection == 'paper'){  
-        playerScore = true
+        playerScore = true;
+        playerCount++;
         alert('You win! Scissors beats Paper!')
-      }else if(playerSelection == 'rock' && randomSelection == 'paper'){ 
+      }else if(playerSelection == 'rock' && randomSelection == 'paper'){
         computeScore = true;
+        computeCount++;
         alert('You lose! Paper beats Rock!')
     }else if(playerSelection == 'paper' && randomSelection == 'rock'){ 
       playerScore = true;
+      playerCount++
       alert ('You win! Paper beats Rock!')
     }else if(playerSelection == 'rock' && randomSelection == 'scissors'){ 
       playerScore = true;
+      playerCount++;
       alert('You win! Rock beats Scissors!')
     }else if(playerSelection == 'scissors' && randomSelection == 'rock'){
       computeScore = true; 
-      computeCount =+1;
+      computeCount++;
       alert('You lose! Rock beats Scissors!');
     }else {
     alert('merp')
