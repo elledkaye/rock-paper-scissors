@@ -29,7 +29,7 @@ img.background{
 
 }
 
-.container #option_container{
+.container #optionBtn_container{
    border: 2px solid black;
    display: flex;
    justify-content: center;
