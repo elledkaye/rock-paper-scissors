@@ -78,7 +78,7 @@ let btn_scissors = document.getElementById("btn_scissors");
 let randomSelection;
 let playerSelection;
 let round = 0; 
-let maxRound = 3; 
+let maxRound = 5; 
 
 
 computerPlay = () => {
@@ -103,9 +103,7 @@ return randomSelection;
     comp_Score.innerHTML = computeCount;
     player_Score.innerHTML = playerCount;
     playerOutput.innerHTML = playerSelection; 
-  
-    console.log(round)   
-    }
+    };
 
     rock.addEventListener("click", ()=>{
       playGame("rock");
@@ -116,33 +114,8 @@ return randomSelection;
     scissors.addEventListener("click", ()=>{
       playGame("scissors");
     });
-
-    game = () =>{
-      if(round <= maxRound ){
-        alert("Round" + "" + round); 
-        
-      }else if(round == maxRound){
-        alert("Last Round");
-      }else{
-        alert("End of game!")
-        btn_rock.disabled = true; 
-        btn_paper.disabled = true; 
-        btn_scissors.disabled = true;
-      };
-      return roundOutput.innerHTML = "Round" + round; 
-      } 
-    
-
-endGame =()=>{
-  if(round == maxRound){
-    btn_rock.disabled = true; 
-    btn_paper.disabled = true; 
-    btn_scissors.disabled = true;
-  }
-}
-   
-
-function test(player){
+ 
+test = (player) =>{
     computerPlay()
       if(player == randomSelection){
         alert('You Tied')
@@ -180,12 +153,40 @@ function test(player){
       btn_rock.disabled = false; 
       btn_paper.disabled = false; 
       btn_scissors.disabled = false;
-      
-
        }; 
  
-addPoints = (a, b) => {
-   console.log(a, b)
-}
 
+       endGame =()=>{
+        if(round == maxRound){
+          btn_rock.disabled = true; 
+          btn_paper.disabled = true; 
+          btn_scissors.disabled = true;
+          addpoints();
+        } 
+       
+      }
+
+      game = () =>{
+        if(round <= maxRound ){
+          alert("Round" + "" + round); 
+        }else if(round == maxRound){
+          alert("Last Round");
+        }else{
+          alert("End of game!")
+          btn_rock.disabled = true; 
+          btn_paper.disabled = true; 
+          btn_scissors.disabled = true;
+        };
+        return roundOutput.innerHTML = "Round:" + round; 
+        } 
+
+        function addpoints(){
+          if (computeCount < playerCount){
+            alert(`you win, comp loses`)
+          }else if(playerCount < computeCount){
+            alert(`you lose bitch, comp wins`)
+          }else 
+         alert(`tie`)
+
+        }
 
