@@ -85,29 +85,26 @@ computerPlay = () => {
 randomSelection = options[Math.floor(Math.random()* options.length)];
 return randomSelection;
 };
-//current issue is when using an onlick event, the button event lingers
-//which is causing me to have to reset the game
-//long story short I only have the option to click a button once not multiple times
-//going to refactor and try adding an event listener and then removing that event listener @ reset 
-//for each btn w/the class of .playerBtn is going to have an event listener 
-//which will trigger a function that determines which button was clicked 
+
 
   let rock = document.querySelector("#btn_rock");
   let paper = document.querySelector("#btn_paper");
   let scissors = document.querySelector("#btn_scissors");
  
   playGame = (playerSelection)=>{  
-    let player = playerSelection;
+    round++
+    let player_Score = document.getElementById("player_Score");
+    let comp_Score = document.getElementById("comp_Score");
+    let player_selection = playerSelection;
     game(); 
-    test(player);
+    test(player_selection);
     endGame();
-    console.log(`ComputerSelection: ` + ' ' + randomSelection + ' ' + `PlayerSelection: ` + ' ' + playerSelection + ' ' + computeScore + ' ' + computeCount +' '+ playerScore);
-    console.log(computeCount);
-    console.log(playerCount);
     compOutput.innerHTML = randomSelection;
+    comp_Score.innerHTML = computeCount;
+    player_Score.innerHTML = playerCount;
     playerOutput.innerHTML = playerSelection; 
-    reset();
-    console.log(round)  
+  
+    console.log(round)   
     }
 
     rock.addEventListener("click", ()=>{
@@ -123,6 +120,7 @@ return randomSelection;
     game = () =>{
       if(round <= maxRound ){
         alert("Round" + "" + round); 
+        
       }else if(round == maxRound){
         alert("Last Round");
       }else{
@@ -137,38 +135,38 @@ return randomSelection;
 
 endGame =()=>{
   if(round == maxRound){
-    btn_rock.disabled = false; 
-    btn_paper.disabled = false; 
-    btn_scissors.disabled = false;
+    btn_rock.disabled = true; 
+    btn_paper.disabled = true; 
+    btn_scissors.disabled = true;
   }
 }
    
 
-function test(p){
+function test(player){
     computerPlay()
-      if(p == randomSelection){
+      if(player == randomSelection){
         alert('You Tied')
-      }else if(playerSelection == "paper" && randomSelection == "scissors"){
+      }else if(player == "paper" && randomSelection == "scissors"){
         computeScore = true;
         computeCount++
         alert('You lose! Scissors beats Paper!')
-      } else if(playerSelection == "scissors" && randomSelection == "paper"){  
+      } else if(player == "scissors" && randomSelection == "paper"){  
         playerScore = true;
         playerCount++;
         alert('You win! Scissors beats Paper!')
-      }else if(playerSelection == "rock" && randomSelection == "paper"){
+      }else if(player == "rock" && randomSelection == "paper"){
         computeScore = true;
         computeCount++;
         alert('You lose! Paper beats Rock!')
-    }else if(playerSelection == "paper" && randomSelection == "rock"){ 
+    }else if(player == "paper" && randomSelection == "rock"){ 
       playerScore = true;
       playerCount++
       alert ('You win! Paper beats Rock!')
-    }else if(playerSelection == "rock" && randomSelection == "scissors"){ 
+    }else if(player == "rock" && randomSelection == "scissors"){ 
       playerScore = true;
       playerCount++;
       alert('You win! Rock beats Scissors!')
-    }else if(playerSelection == "scissors" && randomSelection == "rock"){
+    }else if(player == "scissors" && randomSelection == "rock"){
       computeScore = true; 
       computeCount++;
       alert('You lose! Rock beats Scissors!');

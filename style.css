@@ -46,6 +46,7 @@ img.background{
 #comp_output, #player_output{
     background-color: lavender;
     text-align: center;
+    border-radius: 5%;
 }
 .container #game_control{
     display: flex;
