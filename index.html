@@ -16,51 +16,56 @@
     <h1 style="text-align: center;">Rock, Paper, Scissors</h1>
 </head>
 <body>
-      <div class="container container fluid" id="game_container">
+      <div class="container container fluid" id="game_container" style="text-align: center;">
     <h2>Select one of the following buttons to get started!</h2> 
-    <smalltext>5 Rounds Best Of Luck</smalltext>
+    <smalltext>It's YOU versus machine, there are 5 rounds whoever has the most points win!</smalltext>
     <h3 id="roundNum" style="text-align: center;">Round:</h3>
-    <div class="container container-fluid mt-3" id="optionBtn_container"> 
-        <div class="row mt-5" id="option_row">
-            <div class="col-md-4 container-fluid" >
-    <button class="btn btn-secondary playerBtn" id="btn_rock" type="button" value="rock"><img src="./img/rock-emoji.png" style="height: 35px; width: 35px;">Rock</button> 
+    <div class="container container-fluid" id="optionBtn_container"> 
+        <div class="row " id="option_row">
+            <div class="col-md-4" >
+    <button class="btn btn-secondary playerBtn" id="btn_rock" type="button" value="rock"><img src="./img/rock-emoji.png" alt="rock icon" style="height: 35px; width: 35px;">Rock</button> 
 </div> 
 <div class="col-md-4">
-    <button class="btn btn-secondary playerBtn" id="btn_paper" value="paper"><img src="./img/paper.png" style="height:35px; width:35px;">Paper</button> 
+    <button class="btn btn-secondary playerBtn" id="btn_paper" value="paper"><img src="./img/paper.png"  alt="paper icon" style="height:35px; width:35px;">Paper</button> 
 </div> 
 <div class="col-md-4">
-    <button class="btn btn-secondary playerBtn" id="btn_scissors" value="scissors" ><img src="./img/scissors-icon-31.png"style="height:30px; width:30px;">Scissors</button>
+    <button class="btn btn-secondary playerBtn" id="btn_scissors" value="scissors" ><img src="./img/scissors-icon-31.png" alt="scissos icon"style="height:30px; width:30px;">Scissors</button>
+</div>
+</div>
+<div class="container container-fluid" id="results_Container"> 
+    <div class="row" id="results_row">
+    <div class="col-lg-12" id="round_Results"> 
+<p id="results">This is the relst</p>
+    </div> 
 </div>
 </div>
     </div>
     <div class="container container-fluid" id="playing_field"> 
-        <div class="col-md-4 mt-3" id="comp_output">
+        <div class="col mt-3" id="comp_output">
             <h4>Computer:</h4>
         <p id="compOutput"></p>
         <p id="comp_Score"></p>
         </div>
         <div class="col-md-4"> 
             <h4>Winner:</h4> 
-
         </div>
         <div class="col-md-4 mt-3" id="player_output">
             <h4>Player:</h4>
         <p id="playerOutput"></p>
-        <p id="player_Score"
-        </div>
+        <p id="player_Score"></p>
+       </div>
     </div>
     <div class="container container-fluid mt-3" id="game_control"> 
         <div class="row"id="game_row">
-         <div class="col-md-6">
-    <button class="btn btn-secondary" id="start" onclick="getSelection()">Start</button>
-    <button class="btn btn-secondary" id="reset" onclick="reset()">Reset</button>
+         <div class="col-lg-12">
+    <button class="btn btn-secondary" id="reset" onclick="reset()" disabled=true; >PlayAgain</button>
 </div>
 </div>
     </div>
 </div>
 <footer> 
 
-    footer
+    <p>Odin Project | Rock Paper Scissors &copy; | DK</p>
 </footer>
     <script src="script.js"></script>
     <!-- Optional JavaScript -->

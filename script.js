@@ -69,8 +69,6 @@ let playerOutput = document.getElementById("playerOutput");
 let compOutput = document.getElementById("compOutput");
 let playerCount = 0; 
 let computeCount =0;
-let playerScore = false; 
-let computeScore = false;
 let player_btn = document.querySelectorAll(".playerBtn");
 let btn_rock = document.getElementById("btn_rock");
 let btn_paper = document.getElementById("btn_paper");
@@ -99,10 +97,10 @@ return randomSelection;
     game(); 
     test(player_selection);
     endGame();
-    compOutput.innerHTML = randomSelection;
     comp_Score.innerHTML = computeCount;
     player_Score.innerHTML = playerCount;
     playerOutput.innerHTML = playerSelection; 
+    compOutput.innerHTML = randomSelection;
     };
 
     rock.addEventListener("click", ()=>{
@@ -120,48 +118,49 @@ test = (player) =>{
       if(player == randomSelection){
         alert('You Tied')
       }else if(player == "paper" && randomSelection == "scissors"){
-        computeScore = true;
         computeCount++
         alert('You lose! Scissors beats Paper!')
       } else if(player == "scissors" && randomSelection == "paper"){  
-        playerScore = true;
         playerCount++;
         alert('You win! Scissors beats Paper!')
       }else if(player == "rock" && randomSelection == "paper"){
-        computeScore = true;
         computeCount++;
         alert('You lose! Paper beats Rock!')
     }else if(player == "paper" && randomSelection == "rock"){ 
-      playerScore = true;
       playerCount++
       alert ('You win! Paper beats Rock!')
     }else if(player == "rock" && randomSelection == "scissors"){ 
-      playerScore = true;
       playerCount++;
       alert('You win! Rock beats Scissors!')
     }else if(player == "scissors" && randomSelection == "rock"){
-      computeScore = true; 
       computeCount++;
       alert('You lose! Rock beats Scissors!');
     }else {
     alert('merp')
-      }
-    } 
+      };
+    };
   
   reset = () => {
       playerSelection = document.querySelector(".btn");
       btn_rock.disabled = false; 
       btn_paper.disabled = false; 
       btn_scissors.disabled = false;
+      playerCount = 0; 
+      computeCount = 0;
+      comp_Score.innerHTML = " ";
+      player_Score.innerHTML = " ";
+      player_Score.innerHTML = " ";
+      playerOutput.innerHTML = " "; 
+      compOutput.innerHTML = " ";
        }; 
  
-
-       endGame =()=>{
+      endGame =()=>{
         if(round == maxRound){
           btn_rock.disabled = true; 
           btn_paper.disabled = true; 
           btn_scissors.disabled = true;
           addpoints();
+          document.getElementById('reset').disabled = false;
         } 
        
       }
@@ -182,11 +181,10 @@ test = (player) =>{
 
         function addpoints(){
           if (computeCount < playerCount){
-            alert(`you win, comp loses`)
+            alert(`Congrats You Win!`)
           }else if(playerCount < computeCount){
-            alert(`you lose bitch, comp wins`)
+            alert(`Better Luck Next Time, You Lost!`)
           }else 
          alert(`tie`)
-
         }
 
