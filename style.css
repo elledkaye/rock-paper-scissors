@@ -20,7 +20,7 @@ img.background{
     min-height:400px; 
     min-width: 70px;
 }
-#btn_rock, #btn_paper, #btn_scissors{
+#btnRock, #btnPaper, #btnScissors{
     box-shadow:0px 10px 15px 15px #f8f5f5c9;
     border-color: #f8f5f5c9;
     margin:15px;

@@ -69,7 +69,6 @@ let playerOutput = document.getElementById("playerOutput");
 let compOutput = document.getElementById("compOutput");
 let playerCount = 0; 
 let computeCount =0;
-let btn_scissors = document.getElementById("btn_scissors");
 let randomSelection;
 let playerSelection;
 let round = 0; 
@@ -82,9 +81,9 @@ return randomSelection;
 };
 
 
-  let rock = document.querySelector("#btn_rock");
-  let paper = document.querySelector("#btn_paper");
-  let scissors = document.querySelector("#btn_scissors");
+  let rock = document.querySelector("#btnRock");
+  let paper = document.querySelector("#btnPaper");
+  let scissors = document.querySelector("#btnScissors");
  
   playGame = (playerSelection)=>{  
     round++
