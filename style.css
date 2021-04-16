@@ -68,6 +68,11 @@ img.background{
     margin: auto;
 } 
 
+footer{
+    text-align: center;
+    margin-top: 5px;
+}
+
 /*Media Queries*/
 @media(max-width:768px){
     body{

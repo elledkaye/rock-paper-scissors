@@ -40,35 +40,15 @@
 //if computer selection is paper and player is rock then 
 //the computer wins etc..
 
-// getrock = () =>{ 
-   // if(e.target.id == 'btn_rock'){
-     // alert('match');
-      //playerSelection = e.target.id;
-      //console.log(e.target.id);
-      //return playerSelection;
-   // }
-  //}; 
-
-  /* getpaper = (e) => {
-  if(e.target.id == 'btn_paper'){
-   playerSelection = 'paper';
-   console.log(e.target.id)
- };
-  return(playerSelection);
-};
-
-getscissors = () =>{
-if(btn_scissors.onclick = true){
-  playerSelection = 'scissors'
-}
-  return(playerSelection);
-};*/
 let options = ['rock', 'paper', 'scissors'];
 let roundOutput = document.getElementById("roundNum");
 let playerOutput = document.getElementById("playerOutput");
 let compOutput = document.getElementById("compOutput");
+let rock = document.querySelector("#btnRock");
+let paper = document.querySelector("#btnPaper");
+let scissors = document.querySelector("#btnScissors");
 let playerCount = 0; 
-let computeCount =0;
+let computeCount = 0;
 let randomSelection;
 let playerSelection;
 let round = 0; 
@@ -79,26 +59,19 @@ computerPlay = () => {
 randomSelection = options[Math.floor(Math.random()* options.length)];
 return randomSelection;
 };
-
-
-  let rock = document.querySelector("#btnRock");
-  let paper = document.querySelector("#btnPaper");
-  let scissors = document.querySelector("#btnScissors");
- 
+  
   playGame = (playerSelection)=>{  
     round++
     let player_Score = document.getElementById("player_Score");
     let comp_Score = document.getElementById("comp_Score");
-    let player_selection = playerSelection;
     game(); 
-    test(player_selection);
+    test(playerSelection);
     endGame();
     comp_Score.innerHTML = computeCount;
     player_Score.innerHTML = playerCount;
     playerOutput.innerHTML = playerSelection; 
     compOutput.innerHTML = randomSelection;
     };
-
     rock.addEventListener("click", ()=>{
       playGame("rock");
     });
@@ -116,32 +89,32 @@ test = (player) =>{
         results.innerHTML = "You Tied";
       }else if(player == "paper" && randomSelection == "scissors"){
         computeCount++
-        alert('You lose! Scissors beats Paper!')
+        results.innerHTML = "You lose! Scissors beats Paper!"
       } else if(player == "scissors" && randomSelection == "paper"){  
         playerCount++;
-        alert('You win! Scissors beats Paper!')
+        results.innerHTML = "You win! Scissors beats Paper!";
       }else if(player == "rock" && randomSelection == "paper"){
         computeCount++;
-        alert('You lose! Paper beats Rock!')
+        results.innerHTML= "You lose! Paper beats Rock!";
     }else if(player == "paper" && randomSelection == "rock"){ 
       playerCount++
-      alert ('You win! Paper beats Rock!')
+      results.innerHTML = "You win! Paper beats Rock!";
     }else if(player == "rock" && randomSelection == "scissors"){ 
       playerCount++;
-      alert('You win! Rock beats Scissors!')
+      results.innerHTML = "You win! Rock beats Scissors!";
     }else if(player == "scissors" && randomSelection == "rock"){
       computeCount++;
-      alert('You lose! Rock beats Scissors!');
+      results.innerHTML = "You lose! Rock beats Scissors!";
     }else {
     alert('merp')
       };
     };
   
   reset = () => {
-      playerSelection = document.querySelector(".btn");
-      btn_rock.disabled = false; 
-      btn_paper.disabled = false; 
-      btn_scissors.disabled = false;
+      playerSelection = " ";
+      btnRock.disabled = false; 
+      btnPaper.disabled = false; 
+      btnScissors.disabled = false;
       playerCount = 0; 
       computeCount = 0;
       comp_Score.innerHTML = " ";
@@ -149,39 +122,32 @@ test = (player) =>{
       player_Score.innerHTML = " ";
       playerOutput.innerHTML = " "; 
       compOutput.innerHTML = " ";
+      roundOutput.innerHTML = "Round:"; 
+      results.innerHTML = " ";
        }; 
- 
       endGame =()=>{
         if(round == maxRound){
-          btn_rock.disabled = true; 
-          btn_paper.disabled = true; 
-          btn_scissors.disabled = true;
+          alert("End of game!")
+          btnRock.disabled = true; 
+          btnPaper.disabled = true; 
+          btnScissors.disabled = true;
           addpoints();
-          document.getElementById('reset').disabled = false;
-        } 
-       
-      }
-
+          document.getElementById("reset").disabled = false;
+        };
+      };
       game = () =>{
-        if(round <= maxRound ){
-          alert("Round" + "" + round); 
+        if(round < maxRound ){
         }else if(round == maxRound){
           alert("Last Round");
-        }else{
-          alert("End of game!")
-          btn_rock.disabled = true; 
-          btn_paper.disabled = true; 
-          btn_scissors.disabled = true;
         };
         return roundOutput.innerHTML = "Round:" + round; 
         } 
-
         function addpoints(){
           if (computeCount < playerCount){
-            alert(`Congrats You Win!`)
+            alert(`Congrats You Win!`);
           }else if(playerCount < computeCount){
-            alert(`Better Luck Next Time, You Lost!`)
+            alert(`Better Luck Next Time, You Lost!`);
           }else 
-         alert(`tie`)
-        }
+         alert(`tie`);
+        };
 
