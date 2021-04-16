@@ -5,10 +5,9 @@ body{
     background-image: url(./img/background.jpg);
     background-position:inherit;
     background-size:cover;
-    background-position-x: left;
-    
-    
+    background-position-x: left;  
 }
+
 .container{
     width:80%; 
     margin: auto;
@@ -36,18 +35,25 @@ img.background{
     justify-content: center;
     margin: auto;
     position: absolute;
-    bottom: 25px;
+    bottom: 50px;
+}
+
+#results{
+    font-weight: 700;
+    font-size: 32px;
 }
 
 .container #optionBtn_container{
-   border: 2px solid black;
    display: flex;
    justify-content: center;
    flex-direction: row;
    height: 50vh;    
    min-height: 400px;
    width: 100%;
-   
+}
+
+#option_row{
+    margin-top:5%;
 }
 .container #playing_field{
     display: flex;
@@ -67,9 +73,6 @@ img.background{
     margin: auto;
 } 
 
-
-
-
 /*Media Queries*/
 @media(max-width:768px){
     body{
@@ -78,7 +81,19 @@ img.background{
     #btn_rock, #btn_paper, #btn_scissors{
         margin:5px;
         width:70%;
-        height: 50%;
+        height: auto;
+    }
+    .container #results_Container{
+        border: 2px solid black;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: auto;
+        position: absolute;
+        bottom: 0px;
+    }
+    #results{
+        font-size: 24px;
     }
 
 }

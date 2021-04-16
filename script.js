@@ -69,9 +69,6 @@ let playerOutput = document.getElementById("playerOutput");
 let compOutput = document.getElementById("compOutput");
 let playerCount = 0; 
 let computeCount =0;
-let player_btn = document.querySelectorAll(".playerBtn");
-let btn_rock = document.getElementById("btn_rock");
-let btn_paper = document.getElementById("btn_paper");
 let btn_scissors = document.getElementById("btn_scissors");
 let randomSelection;
 let playerSelection;
@@ -114,9 +111,10 @@ return randomSelection;
     });
  
 test = (player) =>{
+  let result = document.getElementById("results")
     computerPlay()
       if(player == randomSelection){
-        alert('You Tied')
+        results.innerHTML = "You Tied";
       }else if(player == "paper" && randomSelection == "scissors"){
         computeCount++
         alert('You lose! Scissors beats Paper!')
