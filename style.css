@@ -38,10 +38,11 @@ img.background{
     height: 20%;
 }
 .container #resultsContainer{
-    border: 2px solid black;
+   
     display: flex;
     flex-direction: row;
     justify-content: center;
+    background-color:pink;
     margin: auto;
     position: absolute;
     bottom: 50px;

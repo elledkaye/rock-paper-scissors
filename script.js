@@ -109,7 +109,7 @@ test = (player) =>{
     alert('merp')
       };
     };
-  
+    
   reset = () => {
       playerSelection = " ";
       btnRock.disabled = false; 
