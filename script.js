@@ -124,6 +124,7 @@ test = (player) =>{
       compOutput.innerHTML = " ";
       roundOutput.innerHTML = "Round:"; 
       results.innerHTML = " ";
+      round = 0;
        }; 
       endGame =()=>{
         if(round == maxRound){
