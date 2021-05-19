@@ -8,3 +8,5 @@ Acknowledgements
 
  * 🎨 background img 
 
+Next task: 
+Clean up and refactoring
