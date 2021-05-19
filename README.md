@@ -10,3 +10,4 @@ Acknowledgements
 
 Next task: 
 Clean up and refactoring
+Set up video tutorial for Dev.to
